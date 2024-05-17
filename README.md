@@ -112,78 +112,79 @@ class CategoryItem {
 }
 
 
+
 EJERCICIO 2
+
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(ProductDetailApp());
+  runApp(MyApp());
 }
 
-class ProductDetailApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Product Detail',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: ProductDetailScreen(),
+      home: Producto(),
     );
   }
 }
 
-class ProductDetailScreen extends StatelessWidget {
+class Producto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Product Detail'),
+        title: Text('Detalles del Producto Max Cirineo'),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-           Center(
-              child: Image.asset(
-                'assets/images/product.png',
-                width: 200,
-                height: 200,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/tabas.jpg',
+                width: 200, // Ancho deseado
+                height: 200, // Alto deseado
+                fit: BoxFit.cover, // Ajuste de la imagen
               ),
-            ),
-            SizedBox(height: 16),
-            Text(
-              'Product Name',
-              style: GoogleFonts.montserrat(
-                textStyle: TextStyle(
+              SizedBox(height: 20),
+              Text(
+                'Zapatillas Mike T-42',
+                style: TextStyle(
+                  fontFamily: 'Montserrat', // Corregir el nombre de la fuente
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
+                textAlign: TextAlign.center,
               ),
-            ),
-            SizedBox(height: 8),
-            Text(
-              '\$99.99',
-              style: GoogleFonts.roboto(
-                textStyle: TextStyle(
-                  fontSize: 20,
-                  color: Colors.green,
-                  fontWeight: FontWeight.w500,
+              SizedBox(height: 10),
+              Text(
+                '\$200.99', // Corregir el símbolo de dólar para que se muestre correctamente
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontSize: 18,
+                  color: Colors.green, // Color del texto del precio
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  'Dale a tu look un toque fresco y vibrante con las nuevas zapatillas Mike AirMax VerdeBlanco. Diseñadas para aquellos que buscan comodidad sin sacrificar estilo, estas zapatillas combinan tecnología avanzada y un diseño moderno que te hará destacar.',
+                  style: TextStyle(
+                    fontFamily: 'Nunito',
+                    fontSize: 16,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
-            ),
-            SizedBox(height: 16),
-            Text(
-              'This is a brief description of the product. It provides key details and features that make this product unique and desirable.',
-              style: GoogleFonts.nunito(
-                textStyle: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black87,
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
